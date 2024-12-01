@@ -20,81 +20,64 @@
 			rel="stylesheet" />
 	</head>
 	<body>
+		<a
+			class="link-to-top"
+			href="#top">
+			<img
+				src="./jakori.svg"
+				alt="top" />
+		</a>
+		<header>
+			<nav id="top">
+				<a href="/">Home</a>
+				<a href="/authorization.html">Authorization</a>
+				<a href="/game.html">Game</a>
+				<a href="/leaderboard.html">Leaderboard</a>
+			</nav>
+		</header>
 		<main class="container text-center mt-5">
-			<header>
-				<h1>Simon Game</h1>
-				<p id="level-title">Let's play!</p>
-				<p
-					id="user-name"
-					style="font-size: 1.5rem"></p>
-			</header>
-
-			<button
-				id="play-button"
-				class="d-none">
-				Play
-			</button>
-
-			<section
-				id="game-buttons"
-				class="row justify-content-center d-none">
-				<div class="col-6 col-md-3">
-					<button
-						class="btn btn-lg simon-btn"
-						id="red"></button>
+			<section class="section-game-rules">
+				<div class="how-to-play">
+					<h2>How to play</h2>
+					<ol>
+						<li>
+							Задача игроков — собрать как можно больше разноцветных шариков,
+							разбросанных по игровому полю. Шарики разных цветов приносят
+							разное количество очков.
+						</li>
+						<li>
+							Каждый ход игрок может либо передвинуться на одну клетку в любом
+							направлении, либо взять один шарик, если он находится на клетке с
+							ним.
+						</li>
+						<li>Специальные клетки поля дают бонусы.</li>
+						<li>
+							Ловушки: если игрок встает на красную клетку, он теряет один
+							случайный шарик из своей коллекции.
+						</li>
+						<li>
+							Игра заканчивается через 10 ходов или когда все шарики собраны.
+							Побеждает тот, у кого больше всего очков.
+						</li>
+					</ol>
 				</div>
-				<div class="col-6 col-md-3">
-					<button
-						class="btn btn-lg simon-btn"
-						id="green"></button>
-				</div>
-				<div class="col-6 col-md-3">
-					<button
-						class="btn btn-lg simon-btn"
-						id="yellow"></button>
-				</div>
-				<div class="col-6 col-md-3">
-					<button
-						class="btn btn-lg simon-btn"
-						id="blue"></button>
+				<div class="game-rules">
+					<h2>Game rules</h2>
+					<ul>
+						<li>Игроки бросают кубик, чтобы определить количество шагов.</li>
+						<li>Каждое действие ограничено временем — 30 секунд.</li>
+						<li>Пропуск хода, если попал на чёрную клетку.</li>
+						<li>Один бонусный ход за каждую пару собранных предметов.</li>
+						<li>Победа, если набрано 100 очков.</li>
+					</ul>
 				</div>
 			</section>
-			<button
-				id="toggle-leaderboard"
-				class="btn d-none">
-				Show leaderboard
-			</button>
-
-			<aside class="leaderboard">
-				<h2>Leaderboard</h2>
-				<ul
-					id="leaderboard-list"
-					class="list-group"></ul>
-			</aside>
-		</main>
-
-		<div
-			id="nameModal"
-			class="modal">
-			<div class="modal-content">
-				<header>
-					<h2 style="color: #0d6efd">Choose your nickname:</h2>
-				</header>
-				<input
-					type="text"
-					id="username-input"
-					placeholder="Choose your nickname" />
-				<button
-					id="submit-name"
-					class="btn btn-primary mt-3">
-					Enter
-				</button>
-				<p
-					id="error-message"
-					class="error-message"></p>
-			</div>
+			<section class="image-section">
+				<img
+					src="./simon-game-img.webp"
+					alt="simon-game-img" />
+			</section>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script src="./script.js"></script>
 	</body>
 </html>

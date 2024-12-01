@@ -25,6 +25,11 @@ body {
 	}
 }
 
+.link-to-top img {
+  width: 35px;
+  height: 35px;
+}
+
 .simon-btn {
 	width: 100px;
 	height: 100px;
@@ -138,6 +143,111 @@ body {
 
 .fade-in {
 	animation: fadeIn 0.6s ease-in forwards;
+}
+
+header > nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 15px 0;
+}
+
+nav a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  gap: 8px;
+  background-color: blue;
+  width: 100%;
+}
+
+main .description h2, h4 {
+  color: #fff;
+}
+
+.section-game-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 25px 150px;
+}
+
+.section-game-rules .how-to-play {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 4px;
+}
+
+.section-game-rules .how-to-play ol li {
+  text-align: left;
+}
+
+.section-game-rules .game-rules {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-game-rules .game-rules ul li{
+  text-align: left;
+}
+
+.section-register-form {
+  display: flex;
+  justify-content: center;
+}
+
+.section-register-form .form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-register-form .form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  gap: 4px;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.link-to-top {
+  position: fixed;
+  background-color: blue;
+  padding: 15px;
+  border-radius: 9999px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.link-to-top:hover {
+  background-color: ghostwhite;
+  border: 1px solid blue;
+  transition: all 0.2s ease-in-out;
 }
 
 @keyframes fadeIn {
