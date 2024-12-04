@@ -251,29 +251,64 @@ main .description h2, h4 {
 }
 
 
-.username,.password {
-	background-color: rgb(250, 251, 252);
-	border-color: rgb(223, 225, 230);
-	color: rgb(9, 30, 66);
-	cursor: text;
-	border-radius: 3px;
-	border-width: 2px;
-	border-style: solid;
-	box-sizing: border-box;
-	font-size: 14px;
-	transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
-	line-height: 1.42857; 
-	padding: 8px 6px;
-	height: 36px;
+.input-container input{
+background-color: rgb(250, 251, 252);
+border-color: rgb(223, 225, 230);
+color: rgb(9, 30, 66);
+cursor: text;
+border-radius: 3px;
+border-width: 2px;
+border-style: solid;
+box-sizing: border-box;
+font-size: 14px;
+transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+line-height: 1.42857; 
+padding: 8px 6px;
+height: 36px;
 }
 
-.username,.password:hover{
+.input-container input:hover{
 		background-color: rgb(235, 236, 240);
 }
-.username,.password:focus{
+
+.input-container input:focus{
 		background-color: rgb(255, 255, 255);
 		border-color: rgb(76, 154, 255);
 }
+
+.request-buttons button, .score-send {
+  background-color: #1136f3;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.request-buttons button:hover, .score-send:hover, .score-send:focus
+.request-buttons button:focus {
+  background-color: #1656f8;
+}
+
+
 
 @keyframes fadeIn {
 	from {
