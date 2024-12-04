@@ -250,6 +250,31 @@ main .description h2, h4 {
   transition: all 0.2s ease-in-out;
 }
 
+
+.username,.password {
+	background-color: rgb(250, 251, 252);
+	border-color: rgb(223, 225, 230);
+	color: rgb(9, 30, 66);
+	cursor: text;
+	border-radius: 3px;
+	border-width: 2px;
+	border-style: solid;
+	box-sizing: border-box;
+	font-size: 14px;
+	transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+	line-height: 1.42857; 
+	padding: 8px 6px;
+	height: 36px;
+}
+
+.username,.password:hover{
+		background-color: rgb(235, 236, 240);
+}
+.username,.password:focus{
+		background-color: rgb(255, 255, 255);
+		border-color: rgb(76, 154, 255);
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
