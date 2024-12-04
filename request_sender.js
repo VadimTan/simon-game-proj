@@ -61,5 +61,5 @@ export function alertCallback(text) {
 	alert(text);
 }
 
-export const devApiURL = 'http://127.0.0.1:8000';
+export const devApiURL = 'http://127.0.0.1:5500';
 export const apiURL = 'https://d5dsv84kj5buag61adme.apigw.yandexcloud.net';
