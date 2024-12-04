@@ -16,7 +16,7 @@
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
 		<link
-			href="./style.css"
+			href="./css/style.css"
 			rel="stylesheet" />
 	</head>
 	<body>
@@ -24,15 +24,15 @@
 			class="link-to-top"
 			href="#top">
 			<img
-				src="./jakori.svg"
+				src="./assets/jakori.svg"
 				alt="top" />
 		</a>
 		<header>
 			<nav id="top">
 				<a href="./index.html">Home</a>
 				<a href="./authorization.html">Authorization</a>
-				<a href="./game.html">Game</a>
-				<a href="./leaderboard.html">Leaderboard</a>
+				<a class="game-link d-none" href="./game.html">Game</a>
+				<a class="leaderboard-link d-none" href="./leaderboard.html">Leaderboard</a>
 			</nav>
 		</header>
 		<main class="container text-center mt-5">
@@ -74,10 +74,10 @@
 			</section>
 			<section class="image-section">
 				<img
-					src="./simon-game-img.webp"
+					src="./assets/simon-game-img.webp"
 					alt="simon-game-img" />
 			</section>
 		</div>
-		<script src="./script.js"></script>
+		<script src="./js/home.js"></script>
 	</body>
 </html>

@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="./style.css" />
+			href="./css/style.css" />
 		<link
 			rel="icon"
 			href="favicon/favicon.ico"
@@ -18,7 +18,7 @@
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous" />
 		<link
-			href="./style.css"
+			href="./css/style.css"
 			rel="stylesheet" />
 		<title>Authorization</title>
 	</head>
@@ -27,8 +27,16 @@
 			<nav id="top">
 				<a href="./index.html">Home</a>
 				<a href="./authorization.html">Authorization</a>
-				<a href="./game.html">Game</a>
-				<a href="./leaderboard.html">Leaderboard</a>
+				<a
+					class="game-link d-none"
+					href="./game.html"
+					>Game</a
+				>
+				<a
+					class="leaderboard-link d-none"
+					href="./leaderboard.html"
+					>Leaderboard</a
+				>
 			</nav>
 		</header>
 		<section class="section-register-form">
@@ -54,18 +62,20 @@
 						Register
 					</button>
 					<button class="authorize-btn">Authorize</button>
+					<div
+						id="loginModal"
+						class="modal">
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<h2>Success!</h2>
+							<p>You have successfully logged in.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
-		<div class="score-container">
-			<input
-				class="score-number"
-				type="number"
-				name="score" />
-			<button class="score-send">Send</button>
-		</div>
 		<script
 			type="module"
-			src="./authorization.js"></script>
+			src="./js/authorization.js"></script>
 	</body>
 </html>

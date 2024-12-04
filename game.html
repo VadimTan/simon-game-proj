@@ -15,16 +15,16 @@
 			href="favicon/favicon.ico"
 			type="image/x-icon" />
 		<link
-			rel="stylesheet"
-			href="./style.css" />
-		<title>Simon Game</title>
+			href="./css/style.css"
+			rel="stylesheet" />
+		<title>Game</title>
 	</head>
 	<body>
 		<a
 			class="link-to-top"
 			href="#top">
 			<img
-				src="./jakori.svg"
+				src="./assets/jakori.svg"
 				alt="top" />
 		</a>
 		<header>
@@ -46,7 +46,7 @@
 
 			<button
 				id="play-button"
-				class="d-none">
+				class="">
 				Play
 			</button>
 
@@ -74,43 +74,10 @@
 						id="blue"></button>
 				</div>
 			</section>
-			<button
-				id="toggle-leaderboard"
-				class="btn d-none">
-				Show leaderboard
-			</button>
-
-			<aside class="leaderboard">
-				<h2>Leaderboard</h2>
-				<ul
-					id="leaderboard-list"
-					class="list-group"></ul>
-			</aside>
 		</main>
-
-    <div
-      id="nameModal"
-      class="modal">
-      <div class="modal-content">
-        <header>
-          <h2 style="color: #0d6efd">Choose your nickname:</h2>
-        </header>
-        <input
-          type="text"
-          id="username-input"
-          placeholder="Choose your nickname" />
-        <button
-          id="submit-name"
-          class="btn btn-primary mt-3">
-          Enter
-        </button>
-        <p
-          id="error-message"
-          class="error-message"></p>
-      </div>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script
 			type="module"
-			src="./script.js"></script>
+			src="./js/script.js"></script>
 	</body>
 </html>

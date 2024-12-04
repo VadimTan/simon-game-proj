@@ -4,46 +4,7 @@ var userClickedPattern = [];
 var start = false;
 var level = 0;
 var clickEnabled = false;
-var userName = '';
-
-document.getElementById('submit-name').addEventListener('click', function () {
-	var nameInput = document.getElementById('username-input').value;
-	if (nameInput && !isNameTaken(nameInput)) {
-		userName = nameInput;
-		document.getElementById('user-name').innerText = 'Player: ' + userName;
-		document.getElementById('nameModal').style.display = 'none';
-		document.getElementById('play-button').classList.remove('d-none');
-	} else {
-		document.getElementById('error-message').innerText =
-			'This name is already taken. Try another!';
-	}
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-	document.getElementById('nameModal').style.display = 'block';
-	loadLeaderBoard();
-
-	document
-		.getElementById('toggle-leaderboard')
-		.addEventListener('click', function () {
-			var leaderboard = document.querySelector('.leaderboard');
-			if (
-				leaderboard.style.display === 'none' ||
-				leaderboard.style.display === ''
-			) {
-				leaderboard.style.display = 'block';
-			} else {
-				leaderboard.style.display = 'none';
-			}
-		});
-});
-
-function isNameTaken(name) {
-	var leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-	return leaderboard.some(function (entry) {
-		return entry.name === name;
-	});
-}
+var userName = localStorage.getItem('username');
 
 document.getElementById('play-button').addEventListener('click', function () {
 	startGame();
@@ -59,7 +20,6 @@ function startGame() {
 	document.getElementById('level-title').innerText = 'Level ' + level;
 	document.getElementById('play-button').classList.add('d-none');
 	document.getElementById('game-buttons').classList.remove('d-none');
-	document.getElementById('toggle-leaderboard').classList.remove('d-none');
 
 	nextSequence();
 }
@@ -169,18 +129,4 @@ function saveToLeaderBoard(name, score) {
 		return b.score - a.score;
 	});
 	localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-	loadLeaderBoard();
-}
-
-function loadLeaderBoard() {
-	var leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-	var leaderboardList = document.getElementById('leaderboard-list');
-	leaderboardList.innerHTML = '';
-
-	leaderboard.forEach(function (entry) {
-		var listItem = document.createElement('li');
-		listItem.className = 'list-group-item';
-		listItem.textContent = entry.name + ' - Level ' + entry.score;
-		leaderboardList.appendChild(listItem);
-	});
 }
