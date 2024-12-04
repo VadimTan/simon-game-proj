@@ -8,18 +8,18 @@ var level = 0;
 var clickEnabled = false;
 var userName = '';
 
-// document.getElementById('submit-name').addEventListener('click', function () {
-// 	var nameInput = document.getElementById('username-input').value;
-// 	if (nameInput && !isNameTaken(nameInput)) {
-// 		userName = nameInput;
-// 		document.getElementById('user-name').innerText = 'Player: ' + userName;
-// 		document.getElementById('nameModal').style.display = 'none';
-// 		document.getElementById('play-button').classList.remove('d-none');
-// 	} else {
-// 		document.getElementById('error-message').innerText =
-// 			'This name is already taken. Try another!';
-// 	}
-// });
+document.getElementById('submit-name').addEventListener('click', function () {
+	var nameInput = document.getElementById('username-input').value;
+	if (nameInput && !isNameTaken(nameInput)) {
+		userName = nameInput;
+		document.getElementById('user-name').innerText = 'Player: ' + userName;
+		document.getElementById('nameModal').style.display = 'none';
+		document.getElementById('play-button').classList.remove('d-none');
+	} else {
+		document.getElementById('error-message').innerText =
+			'This name is already taken. Try another!';
+	}
+});
 
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('nameModal').style.display = 'block';
