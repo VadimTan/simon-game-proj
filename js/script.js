@@ -1,5 +1,6 @@
 import { apiURL } from '../request_sender.js';
 
+const LOGIN_EXPIRATION_MS = 1 * 60 * 1000;
 var btnColors = ['red', 'green', 'yellow', 'blue'];
 var gamePattern = [];
 var userClickedPattern = [];
@@ -9,8 +10,33 @@ var userName = localStorage.getItem('username');
 const userLogged = localStorage.getItem('userLogged');
 
 function updateUIForLogout() {
+	navigateTo('/authorization.html');
 	document.querySelector('.game-link').classList.add('d-none');
 	document.querySelector('.leaderboard-link').classList.add('d-none');
+}
+
+function navigateTo(route) {
+	if (userLogged) {
+		window.location.href = route;
+	} else {
+		if (window.location.pathname !== '/authorization.html') {
+			window.location.href = '/authorization.html';
+		}
+	}
+}
+
+function clearExpiredLogin() {
+	const userLoggedTime = JSON.parse(localStorage.getItem('userLoggedTime'));
+	if (userLoggedTime && userLoggedTime.value && userLoggedTime.timestamp) {
+		const currentTime = Date.now();
+		if (currentTime - userLoggedTime.timestamp > LOGIN_EXPIRATION_MS) {
+			localStorage.removeItem('userLogged');
+			localStorage.removeItem('userLoggedTime');
+			localStorage.removeItem('username');
+			updateUIForLogout();
+		}
+	}
+	isUserLogged();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -166,3 +192,5 @@ function saveToLeaderBoard(name, score) {
 	});
 	localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
+
+setInterval(clearExpiredLogin, 60 * 1000);
