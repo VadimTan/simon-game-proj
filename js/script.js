@@ -6,6 +6,25 @@ var userClickedPattern = [];
 var score = 0;
 var clickEnabled = false;
 var userName = localStorage.getItem('username');
+const userLogged = localStorage.getItem('userLogged');
+
+function updateUIForLogout() {
+	document.querySelector('.game-link').classList.add('d-none');
+	document.querySelector('.leaderboard-link').classList.add('d-none');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	isUserLogged();
+});
+
+function isUserLogged() {
+	if (userLogged) {
+		document.querySelector('.game-link').classList.remove('d-none');
+		document.querySelector('.leaderboard-link').classList.remove('d-none');
+	} else {
+		updateUIForLogout();
+	}
+}
 
 document.getElementById('play-button').addEventListener('click', function () {
 	startGame();

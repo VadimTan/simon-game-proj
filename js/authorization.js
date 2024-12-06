@@ -1,6 +1,6 @@
 import { apiURL } from '../request_sender.js';
 
-const LOGIN_EXPIRATION_MS = 10 * 60 * 1000;
+const LOGIN_EXPIRATION_MS = 1 * 60 * 1000;
 const userLogged = localStorage.getItem('userLogged');
 
 function setUserLogged() {

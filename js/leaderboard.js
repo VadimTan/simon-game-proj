@@ -9,10 +9,6 @@ function updateUIForLogout() {
 	document.querySelector('.leaderboard-link').classList.add('d-none');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-	isUserLogged();
-});
-
 function isUserLogged() {
 	if (userLogged) {
 		document.querySelector('.game-link').classList.remove('d-none');
@@ -40,6 +36,7 @@ input.addEventListener('keyup', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+	isUserLogged();
 	loadLeaderBoard();
 });
 
