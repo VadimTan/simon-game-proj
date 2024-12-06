@@ -1,8 +1,10 @@
+import { apiURL } from '../request_sender.js';
+
 var btnColors = ['red', 'green', 'yellow', 'blue'];
 var gamePattern = [];
 var userClickedPattern = [];
 var start = false;
-var level = 0;
+var score = 0;
 var clickEnabled = false;
 var userName = localStorage.getItem('username');
 
@@ -10,14 +12,31 @@ document.getElementById('play-button').addEventListener('click', function () {
 	startGame();
 });
 
+const changeScore = async () => {
+	try {
+		const response = await fetch(`${apiURL}/players/${userName}`, {
+			method: 'PUT',
+			body: JSON.stringify({ score }),
+			credentials: 'include',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+		const changedScore = await response.json().then((res) => res.score);
+		saveToLeaderBoard(userName, changedScore);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 function startGame() {
-	level = 0;
+	score = 0;
 	gamePattern = [];
 	userClickedPattern = [];
 	start = false;
 	clickEnabled = false;
 
-	document.getElementById('level-title').innerText = 'Level ' + level;
+	document.getElementById('level-title').innerText = 'Level ' + score;
 	document.getElementById('play-button').classList.add('d-none');
 	document.getElementById('game-buttons').classList.remove('d-none');
 
@@ -53,8 +72,7 @@ function checkAnswer(currentLevel) {
 		setTimeout(function () {
 			document.body.classList.remove('game-over');
 		}, 200);
-
-		saveToLeaderBoard(userName, level);
+		changeScore();
 
 		document.getElementById('play-button').classList.remove('d-none');
 	}
@@ -62,8 +80,8 @@ function checkAnswer(currentLevel) {
 
 function nextSequence() {
 	userClickedPattern = [];
-	level++;
-	document.getElementById('level-title').innerText = 'Level ' + level;
+	score++;
+	document.getElementById('level-title').innerText = 'Level ' + score;
 	var randomNumber = Math.floor(Math.random() * 4);
 	var randomChosenColor = btnColors[randomNumber];
 	gamePattern.push(randomChosenColor);
