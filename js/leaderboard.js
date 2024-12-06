@@ -1,6 +1,6 @@
 import { apiURL } from '../request_sender.js';
 
-const LOGIN_EXPIRATION_MS = 1 * 60 * 1000;
+const LOGIN_EXPIRATION_MS = 10 * 60 * 1000;
 const leaderboardList = document.getElementById('leaderboard-list');
 const input = document.querySelector('.filter-name');
 const userLogged = localStorage.getItem('userLogged');
