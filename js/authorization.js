@@ -13,7 +13,7 @@ function setUserLogged() {
 
 function clearExpiredLogin() {
 	const userLoggedTime = JSON.parse(localStorage.getItem('userLoggedTime'));
-	if (userLoggedTime.value && userLoggedTime.timestamp) {
+	if (userLoggedTime && userLoggedTime.value && userLoggedTime.timestamp) {
 		const currentTime = Date.now();
 		if (currentTime - userLoggedTime.timestamp > LOGIN_EXPIRATION_MS) {
 			localStorage.removeItem('userLogged');
@@ -22,6 +22,7 @@ function clearExpiredLogin() {
 			updateUIForLogout();
 		}
 	}
+	isUserLogged();
 }
 
 function updateUIForLogout() {
@@ -37,6 +38,8 @@ function isUserLogged() {
 	if (userLogged) {
 		document.querySelector('.game-link').classList.remove('d-none');
 		document.querySelector('.leaderboard-link').classList.remove('d-none');
+	} else {
+		updateUIForLogout();
 	}
 }
 

@@ -3,7 +3,6 @@ import { apiURL } from '../request_sender.js';
 var btnColors = ['red', 'green', 'yellow', 'blue'];
 var gamePattern = [];
 var userClickedPattern = [];
-var start = false;
 var score = 0;
 var clickEnabled = false;
 var userName = localStorage.getItem('username');

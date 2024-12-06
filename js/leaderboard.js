@@ -1,23 +1,46 @@
 import { apiURL } from '../request_sender.js';
 
 const leaderboardList = document.getElementById('leaderboard-list');
+const input = document.querySelector('.filter-name');
+const userLogged = localStorage.getItem('userLogged');
+
+function updateUIForLogout() {
+	document.querySelector('.game-link').classList.add('d-none');
+	document.querySelector('.leaderboard-link').classList.add('d-none');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	isUserLogged();
+});
+
+function isUserLogged() {
+	if (userLogged) {
+		document.querySelector('.game-link').classList.remove('d-none');
+		document.querySelector('.leaderboard-link').classList.remove('d-none');
+	} else {
+		updateUIForLogout();
+	}
+}
+
+input.addEventListener('keyup', () => {
+	const filter = input.value.trim().toLowerCase();
+	const listOfUsers = JSON.parse(localStorage.getItem('leaderboard')) || [];
+	const filteredUsers = listOfUsers.filter((user) => {
+		return user.name.toLowerCase().includes(filter);
+	});
+
+	leaderboardList.innerHTML = '';
+
+	filteredUsers.map((user) => {
+		const li = document.createElement('li');
+		li.classList.add('list-group-item');
+		li.textContent = `${user.name} - Level ${user.score}`;
+		leaderboardList.appendChild(li);
+	});
+});
 
 document.addEventListener('DOMContentLoaded', function () {
 	loadLeaderBoard();
-
-	document
-		.getElementById('toggle-leaderboard')
-		.addEventListener('click', function () {
-			var leaderboard = document.querySelector('.leaderboard');
-			if (
-				leaderboard.style.display === 'none' ||
-				leaderboard.style.display === ''
-			) {
-				leaderboard.style.display = 'block';
-			} else {
-				leaderboard.style.display = 'none';
-			}
-		});
 });
 
 function loadLeaderBoard() {
