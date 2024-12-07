@@ -4,6 +4,7 @@ const LOGIN_EXPIRATION_MS = 10 * 60 * 1000;
 var btnColors = ['red', 'green', 'yellow', 'blue'];
 var gamePattern = [];
 var userClickedPattern = [];
+var start = false;
 var score = 0;
 var clickEnabled = false;
 var userName = localStorage.getItem('username');
