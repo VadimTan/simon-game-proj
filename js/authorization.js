@@ -25,18 +25,7 @@ function clearExpiredLogin() {
 	isUserLogged();
 }
 
-function navigateTo(route) {
-	if (userLogged) {
-		window.location.href = route;
-	} else {
-		if (window.location.pathname !== '/authorization.html') {
-			window.location.href = '/authorization.html';
-		}
-	}
-}
-
 function updateUIForLogout() {
-	navigateTo('/authorization.html');
 	document.querySelector('.game-link').classList.add('d-none');
 	document.querySelector('.leaderboard-link').classList.add('d-none');
 }
