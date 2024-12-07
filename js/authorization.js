@@ -29,8 +29,8 @@ function navigateTo(route) {
 	if (userLogged) {
 		window.location.href = route;
 	} else {
-		if (window.location.pathname !== '/authorization.html') {
-			window.location.href = '/authorization.html';
+		if (window.location.pathname !== './authorization.html') {
+			window.location.href = './authorization.html';
 		}
 	}
 }
